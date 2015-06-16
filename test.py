@@ -8,8 +8,8 @@ from daemon import Daemon
 from datetime import datetime
 
 now=datetime.now()
-        now_time=now.hour+' '+now.minute+' '+now.second
-        now_time=now.day+' '+now.month+' '+now.year
+        now_time='(%s:%s:%s)' % (now.hour, now.minute, now.second)
+        now_time='(%s:%s:%s)' % (now.day, now.month, now.year)
         p=subprocess.Popen("ps -aux | awk '{sum[$1] += $3}END {for(i in sum)print i \":\"sum[i]}'", shell=True, stdout=subprocess.PIPE)
         a=[]
         db = MySQLdb.connect(host="localhost", user="sprint", passwd="sprint", db="spirit", charset='utf8')
