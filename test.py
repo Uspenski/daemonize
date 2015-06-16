@@ -21,5 +21,5 @@ while True:
     for elem in a:
         sql = """INSERT INTO cpu(time, date, user, cpu) VALUES ('%(time)s', '%(date)s', '%(user)s', '%(cpu)s')"""%{"time":(now_time), "date":(now_date), "user":str(elem[0]), "cpu":str(elem[1])}
         cursor.execute(sql)
-    db.commit()
-    db.close()
+db.commit()
+db.close()
