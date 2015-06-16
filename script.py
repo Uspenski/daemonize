@@ -8,34 +8,66 @@ import MySQLdb
 
 from daemon import Daemon
 from datetime import datetime
-
-def tell_me_somth():
-	pass
-
-def scan_me_all():
-	pass
-
-def wait_take_it_easy():
-	pass
-
-def shut_up_and_write():
-	pass
+#
+#def tell_me_somth():
+#	pass
+#
+#def scan_me_all():
+#	while True
+#		now=datetime.now
+#		p=subprocess.Popen("ps -aux | awk '{sum[$1] += $3}END {for(i in sum)print i \":\"sum[i]}'", shell=True, stdout=subprocess.PIPE)
+#		a=[]
+#		db = MySQLdb.connect(host="localhost", user="sprint", passwd="sprint", db="spirit", charset='utf8')
+#		cursor = db.cursor()
+#		while True:
+#			strin_answ=p.stdout.readline()
+#			if not strin_answ: break
+#			a.append(strin_answ.split(":"))
+#	    	for elem in a:
+ #       		sql = """INSERT INTO cpu(time, date, user, hdd) VALUES ('%(time)s', '%(date)s', '%(user)s', '%(hdd)s')"""%{"time":(str(now.day)), "date":(str(now.minute)), "user":str(elem[0]), "hdd":str(elem[1])}
+#			cursor.execute(sql)
+#			db.commit()
+#		db.close()
+#
+#
+#def wait_take_it_easy():
+#	sock = socket.socket()
+#       sock.bind(('', 9090))
+#        sock.listen(1)
+#        conn, addr = sock.accept()
+#        print 'connected:', addr
+#        while True:
+#		while True:
+#                	data = conn.recv(1024)
+#                        if not data:
+#	                	break
+#			try:
+#				str(data)
+#			except:
+#				conn.send("Bad parametr")
+#				break
+#			#doing somth.
+#			if str(data) == "CPU":
+#				pass
+#			elif str(data) == "HDD":
+#				pass
+#			else
+#				conn.send("Parametr Does exist")
+#                conn.close()
+#	        time.sleep(1)
+#
+#def shut_up_and_write():
+#	pass
+#"""
 
 class MyDaemon(Daemon):
 	def run(self):
-		sock = socket.socket()
-		sock.bind(('', 9090))
-		sock.listen(1)
-		conn, addr = sock.accept()
-		print 'connected:', addr
-		while True:
-			while True:
-				data = conn.recv(1024)
-				if not data:
-					break
-				conn.send(data.upper())
-			conn.close()
+		while True
 			time.sleep(1)
+#		t1 = threading.Thread(target=wait_take_it_easy, args=())
+#		t2 = threading.Thread(target=scan_me_all, args=())
+#		t1.start()
+#		t2.start()
 
 if __name__ == "__main__":
 	daemon = MyDaemon('/tmp/PIDsprint.pid')
