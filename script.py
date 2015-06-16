@@ -14,7 +14,7 @@ def tell_me_somth():
 
 def scan_me_all():
 	while True:
-		now=datetime.now
+		now=datetime.now()
 		now_time='(%s:%s:%s)' % (now.hour, now.minute, now.second)
 		now_date='(%s:%s:%s)' % (now.day, now.month, now.year)
 		p=subprocess.Popen("ps -aux | awk '{sum[$1] += $3}END {for(i in sum)print i \":\"sum[i]}'", shell=True, stdout=subprocess.PIPE)
