@@ -35,7 +35,7 @@ def wait_take_it_easy():
 	while True:
 		sock = socket.socket()
 		sock.bind(('', 9090))
-    	sock.listen(1)
+	    	sock.listen(1)
 		conn, addr = sock.accept()
 		print 'connected:', addr
         while True:
