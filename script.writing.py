@@ -23,8 +23,8 @@ def scan_me_all():
 			strin_answ=p.stdout.readline()
 			if not strin_answ: break
 			a.append(strin_answ.split(":"))
-    	for elem in a:
-        	sql = """INSERT INTO cpu(time, date, user, hdd) VALUES ('%(time)s', '%(date)s', '%(user)s', '%(hdd)s')"""%{"time":(str(now.time)), "date":(str(now.date)), "user":str(elem[0]), "hdd":str(elem[1])}
+	    	for elem in a:
+        		sql = """INSERT INTO cpu(time, date, user, hdd) VALUES ('%(time)s', '%(date)s', '%(user)s', '%(hdd)s')"""%{"time":(str(now.time)), "date":(str(now.date)), "user":str(elem[0]), "hdd":str(elem[1])}
 			cursor.execute(sql)
 			db.commit()
 		db.close()
