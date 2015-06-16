@@ -14,7 +14,7 @@ p=subprocess.Popen("ps -aux | awk '{sum[$1] += $3}END {for(i in sum)print i \":\
 a=[]
 db = MySQLdb.connect(host="localhost", user="sprint", passwd="sprint", db="spirit", charset='utf8')
 cursor = db.cursor()
-    while True:
+while True:
     strin_answ=p.stdout.readline()
     if not strin_answ: break
     a.append(strin_answ.split(":"))
