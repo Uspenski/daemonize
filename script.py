@@ -25,12 +25,12 @@ def scan_me_all():
 			strin_answ=p.stdout.readline()
 			if not strin_answ: break
 			a.append(strin_answ.split(":"))
-	    for elem in a:
-        	sql = """INSERT INTO cpu(time, date, user, cpu) VALUES ('%(time)s', '%(date)s', '%(user)s', '%(cpu)s')"""%{"time":(str(now_time)), "date":(str(now_date)), "user":str(elem[0]), "cpu":str(elem[1])}
+		for elem in a:
+        		sql = """INSERT INTO cpu(time, date, user, cpu) VALUES ('%(time)s', '%(date)s', '%(user)s', '%(cpu)s')"""%{"time":(str(now_time)), "date":(str(now_date)), "user":str(elem[0]), "cpu":str(elem[1])}
 			cursor.execute(sql)
 		db.commit()
 		db.close()
-		time.sleep(10)
+		time.sleep(60)
 
 
 def wait_take_it_easy():
