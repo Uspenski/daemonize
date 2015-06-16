@@ -32,7 +32,7 @@ def scan_me_all():
         	cursor.execute(sql)
         db.commit()
         db.close()
-        time.sleep(300)
+        time.sleep(90)
 
 
 def wait_take_it_easy():
