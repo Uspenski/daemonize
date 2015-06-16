@@ -13,7 +13,7 @@ def tell_me_somth():
 	pass
 
 def scan_me_all():
-	while True
+	while True:
 		now=datetime.now
 		p=subprocess.Popen("ps -aux | awk '{sum[$1] += $3}END {for(i in sum)print i \":\"sum[i]}'", shell=True, stdout=subprocess.PIPE)
 		a=[]
@@ -28,19 +28,20 @@ def scan_me_all():
 			cursor.execute(sql)
 			db.commit()
 		db.close()
+		time.sleep(10)
 
 
 def wait_take_it_easy():
-	sock = socket.socket()
-        sock.bind(('', 9090))
-        sock.listen(1)
-        conn, addr = sock.accept()
-        print 'connected:', addr
-        while True:
+	while True:
+		sock = socket.socket()
+		sock.bind(('', 9090))
+	    	sock.listen(1)
+		conn, addr = sock.accept()
+		print 'connected:', addr
 		while True:
-                	data = conn.recv(1024)
-                        if not data:
-	                	break
+			data = conn.recv(1024)
+			if not data:
+				break
 			try:
 				str(data)
 			except:
@@ -51,10 +52,10 @@ def wait_take_it_easy():
 				pass
 			elif str(data) == "HDD":
 				pass
-			else
+			else:
 				conn.send("Parametr Does exist")
-                conn.close()
-	        time.sleep(1)
+				conn.close()
+		time.sleep(1)
 
 def shut_up_and_write():
 	pass
@@ -62,6 +63,7 @@ def shut_up_and_write():
 class MyDaemon(Daemon):
 	def run(self):
 		t1 = threading.Thread(target=wait_take_it_easy, args=())
+		t2 = threading.Thread(target=scan_me_all, args=())
 #		sock = socket.socket()
 #		sock.bind(('', 9090))
 #		sock.listen(1)
@@ -76,6 +78,7 @@ class MyDaemon(Daemon):
 #			conn.close()
 #			time.sleep(1)
 		t1.start()
+		t2.start()
 
 if __name__ == "__main__":
 	daemon = MyDaemon('/tmp/PIDsprint.pid')
