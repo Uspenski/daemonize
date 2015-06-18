@@ -12,6 +12,7 @@ def scan_me_all():
 #        now_time='%s:%s:%s' % (now.hour, now.minute, now.second)
 #        now_date='%s:%s:%s' % (now.day, now.month, now.year)
         now_date_time='%s-0%s-%s %s:%s:%s' % (now.year, now.month, now.day, now.hour, now.minute, now.second)
+        print now_date_time
         p=subprocess.Popen("ps -aux | awk '{sum[$1] += $3}END {for(i in sum)print i \":\"sum[i]}'", shell=True, stdout=subprocess.PIPE)
         a=[]
         db = MySQLdb.connect(host="localhost", user="sprint", passwd="sprint", db="spirit", charset='utf8')
