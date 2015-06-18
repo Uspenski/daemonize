@@ -7,10 +7,26 @@ import threading
 import MySQLdb
 
 from daemon import Daemon
-from datetime import datetime
+from datetime import datetime, timedelta
 
-def tell_me_somth():
+def tell_me_somth(charact):
 	pass
+#	dict={}
+#	now=datetime.now()
+#	now_five=datetime.now()-timedelta(minutes=5)
+#	now_date_time='%s-%s-%s %s:%s:%s' % (now.year, now.month, now.day, now.hour, now.minute, now.second)
+#	now_five_format = '%s-%s-%s %s:%s:%s' % (now_five.year, now_five.month, now_five.day, now_five.hour, now_five.minute, now_five.second)
+#	db = MySQLdb.connect(host="localhost", user="sprint", passwd="sprint", db="spirit", charset='utf8')
+#	cursor = db.cursor()
+#	if charact == "CPU":
+#		sql = 'SELECT date_time, user, cpu FROM cpu WHERE date_time > "%s"' % (now_five_format)
+#		cursor.execute(sql)
+#		data = cursor.fetchall()
+#		for rec in data:
+#			dict[rec[1]]+=rec[2]
+#			b = list(dict.items())
+#			b.sort(key=lambda item: item[1])
+#		db.close()
 
 def scan_me_all():
     while True:
@@ -53,7 +69,7 @@ def wait_take_it_easy():
 				break
 			#doing somth.
 			if str(data) == "CPU":
-				pass
+				print tell_me_somth("CPU")
 			elif str(data) == "HDD":
 				pass
 			else:
