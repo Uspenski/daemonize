@@ -38,25 +38,24 @@ def wait_take_it_easy():
 	    	sock.listen(1)
 		conn, addr = sock.accept()
 		print 'connected:', addr
-        while True:
-			while True:
-				data = conn.recv(1024)
-				if not data:
-					break
-				try:
-					str(data)
-				except:
-					conn.send("Bad parametr")
-					break
+		while True:
+			data = conn.recv(1024)
+			if not data:
+				break
+			try:
+				str(data)
+			except:
+				conn.send("Bad parametr")
+				break
 			#doing somth.
-				if str(data) == "CPU":
-					pass
-				elif str(data) == "HDD":
-					pass
-				else:
-					conn.send("Parametr Does exist")
-                	conn.close()
-	        time.sleep(1)
+			if str(data) == "CPU":
+				pass
+			elif str(data) == "HDD":
+				pass
+			else:
+				conn.send("Parametr Does exist")
+				conn.close()
+		time.sleep(1)
 
 def shut_up_and_write():
 	pass
